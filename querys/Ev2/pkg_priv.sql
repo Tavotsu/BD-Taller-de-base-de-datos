@@ -24,11 +24,11 @@ CREATE OR REPLACE PACKAGE BODY PKG_GESTION_ESTUDIANTES AS
         RETURN (v_count > 0);
     END F_PROYECTO_EXISTE;
 
+    --Procedimiento Asignar Proyecto
     PROCEDURE P_ASIGNAR_PROYECTO(
         p_rut_estudiante IN ESTUDIANTE.NUMRUN%TYPE,
         p_id_proyecto    IN PROYECTO.ID_PROYECTO%TYPE
-    ) IS
-    BEGIN
+    ) IS BEGIN
         IF NOT F_ESTUDIANTE_EXISTE(p_rut_estudiante) THEN
             DBMS_OUTPUT.PUT_LINE('Error [PKG]: El estudiante con RUT ' || p_rut_estudiante || ' no existe.');
             RETURN;
@@ -52,6 +52,7 @@ CREATE OR REPLACE PACKAGE BODY PKG_GESTION_ESTUDIANTES AS
             DBMS_OUTPUT.PUT_LINE('Error [PKG] inesperado al asignar: ' || SQLERRM);
     END P_ASIGNAR_PROYECTO;
 
+    --Procedimiento Quitar Proyecto
     PROCEDURE P_QUITAR_PROYECTO(
         p_rut_estudiante IN ESTUDIANTE.NUMRUN%TYPE
     ) IS

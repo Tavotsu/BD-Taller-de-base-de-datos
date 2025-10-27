@@ -1,17 +1,17 @@
 CREATE OR REPLACE TRIGGER TRG_AUDITAR_OPERACIONES_EST
 AFTER UPDATE OR DELETE ON ESTUDIANTE
 DECLARE
-    v_operacion VARCHAR2(50);
+    v_tp_operacion VARCHAR2(6);
 BEGIN
     
     IF UPDATING THEN
-        v_operacion := 'UPDATE';
+        v_tp_operacion := 'UPDATE';
     ELSIF DELETING THEN
-        v_operacion := 'DELETE';
+        v_tp_operacion := 'DELETE';
     END IF;
 
     INSERT INTO LOG_OPERACIONES (usuario_bd, tabla_afectada, operacion)
-    VALUES (USER, 'ESTUDIANTE', v_operacion);
+    VALUES (USER, 'ESTUDIANTE', v_tp_operacion);
     
 END TRG_AUDITAR_OPERACIONES_EST;
 /
