@@ -1,0 +1,46 @@
+//- Leer
+
+db.estudiantes.findOne({ "_id": 19795715 })
+db.estudiantes.find({ "proyecto.track.nombre": "Track de Robótica" })
+db.estudiantes.countDocuments({ "proyecto": null })
+
+//- Actualizar
+
+//Primero hay que buscarlo para asegurarse
+db.estudiantes.findOne({ "_id": 18591568 }) 
+
+//Luego se actualiza
+db.estudiantes.updateOne(
+  { "_id": 18591568 },
+  { 
+    $set: {
+      "proyecto": {
+        "id_proyecto_sql": 101,
+        "nombre": "Modelo de Detección de Emociones v3",
+        "descripcion": "Descripción del proyecto.",
+        "track": {
+          "id_track_sql": 3,
+          "nombre": "Track de Inteligencia Artificial"
+        }
+      }
+    }
+  }
+)
+
+//- Insertar
+
+db.estudiantes.insertOne({
+  "_id": 99999999,
+  "dv_run": "K",
+  "pnombre": "Juan",
+  "snombre": "Andrés",
+  "papellido": "Pérez",
+  "mapellido": "Soto",
+  "fec_nac": "2000-01-01",
+  "genero": "Masculino",
+  "proyecto": null
+})
+
+//- Eliminar
+
+db.estudiantes.deleteOne({ "_id": 99999999 })
