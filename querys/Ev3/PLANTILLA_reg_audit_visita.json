@@ -1,0 +1,24 @@
+{
+  "_id": "000000000000000000000000",
+  "timestamp": "2025-11-20T10:30:05Z",
+  "metadata_camara": {
+    "id_dispositivo": "CAM-LAB-01",
+    "zona": "Zona de Impresión 3D",
+    "resolucion": "1920x1080"
+  },
+  "eventos_detectados": [
+    {
+      "entidad": "persona",
+      "accion": "usando impresora 3d",
+      "confianza_ia": 0.98,
+      "coordenadas_bbox": [100, 200, 300, 400],
+      "posible_match_sql": 19795715
+    },
+    {
+      "entidad": "persona",
+      "accion": "conversando",
+      "confianza_ia": 0.85,
+      "posible_match_sql": null
+    }
+  ]
+}
