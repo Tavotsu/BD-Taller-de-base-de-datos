@@ -2,7 +2,7 @@ import json
 import random
 from datetime import datetime, timedelta
 
-NUM_REGISTROS = 500
+NUM_REGISTROS = 550
 CAMARAS = [
     {"id": "CAM-01", "zona": "Graderia"},
     {"id": "CAM-02", "zona": "Mesa central"},
@@ -15,7 +15,12 @@ ACCIONES_POR_ZONA = {
     "Computadores":["usando el celular", "usando el pc", "comiendo", "conversando"]
 }
 
-RUTS_CONOCIDOS = [19795715, 20928566, 18740982, 21752565, 19888809, 18098800, 203864832]
+RUTS_CONOCIDOS = [
+    19795715, 20928566, 18740982, 21752565, 19888809, 18098800, 203864832,
+    15234567, 15398742, 15600123, 15987654, 16234589, 16543210, 16890123,
+    17123456, 17456789, 17789012, 18123467, 18432109, 18654321, 18901234,
+    19123456, 19456789, 19654321, 20012345, 20567890, 21234567
+]
 
 def generar_auditoria_json():
     logs = []
@@ -35,7 +40,7 @@ def generar_auditoria_json():
             confianza = round(random.uniform(0.75, 0.99), 2)
             
             match_sql = None
-            if random.random() < 0.20:
+            if random.random() < 0.6:
                 match_sql = random.choice(RUTS_CONOCIDOS)
 
             evento = {
